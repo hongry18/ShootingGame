@@ -5,8 +5,63 @@
         <meta charset="UTF-8"/>
     </head>
     <body>
-
+        <div id="contents" style="width: 500px; margin: 0 auto;">
+            <canvas id="elCanvas" width="500" height="500"></canvas>
+        </div>
     </body>
+
     <script>
+        var ctx = elCanvas.getContext("2d")
+        
+        var income = [100, 30, 35, 80, 10, 70, 90, 30]
+
+        mkChart(income)
+
+        function mkChart(income) {
+            var interval = 50
+            var prevXY
+            var bottom = 240
+            var leftPadding = 20;
+            // x line
+            for(var i=0, lng=4; i<lng; i++) {
+                var num = i*interval;
+                drawLine(ctx, new XY(0, bottom - num), new XY(400, bottom - num), "black")
+            }
+            
+            // y line
+            for (var i=0, lng=4; i<lng; i++) {
+                var num = i*100;
+                drawLine(ctx, new XY(num, 0), new XY(num, bottom), "black")
+            }
+
+            // draw data line
+            for(var i=0, e=income.length; i<e; i++) {
+                var num = income[i]
+
+                var xy = new XY( (i*interval + leftPadding), (bottom - num) );
+                if (i==0) {
+                    ctx.moveTo(xy.x, xy.y)
+                } else {
+                    drawLine(ctx, prevXY, xy, "blue")
+                }
+                prevXY = xy;
+            }
+        }
+
+        function drawLine(context, f, t, c) {
+            context.beginPath()
+            context.moveTo(f.x, f.y)
+            context.lineTo(t.x, t.y)
+            context.strokeStyle= c ? c : "black"
+            context.stroke()
+        }
+
+        function XY(x, y) {
+            this.x = x
+            this.y = y
+        }
+    </script>
+    <script>
+        // myLib
     </script>
 </html>
