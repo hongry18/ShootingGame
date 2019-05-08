@@ -12,9 +12,11 @@
 
     <script>
         var ctx = elCanvas.getContext("2d")
-        
-        var income = [100, 30, 35, 80, 10, 70, 90, 30]
 
+        //drawRect(ctx, new XY(10,10), 300, 1)
+        //drawLine(ctx, new XY(10,60), new XY(310, 60))
+
+        var income = [100, 30, 35, 80, 10, 70, 90, 30]
         mkChart(income)
 
         function mkChart(income) {
@@ -24,7 +26,7 @@
             var leftPadding = 20;
             // x line
             for(var i=0, lng=4; i<lng; i++) {
-                var num = i*interval;
+                var num = i*60;
                 drawLine(ctx, new XY(0, bottom - num), new XY(400, bottom - num), "black")
             }
             
@@ -44,8 +46,28 @@
                 } else {
                     drawLine(ctx, prevXY, xy, "blue")
                 }
+                drawArc(ctx, xy)
                 prevXY = xy;
             }
+        }
+
+        function drawArc(context, c) {
+            ctx.beginPath()
+            ctx.arc(
+                c.x, c.y // 중점의 좌표
+                ,3 // 반지름
+                ,0 // 각의 시작점 start radian value
+                ,2 * Math.PI // 각의 끝점 end radian value
+            )
+            ctx.fill()
+            ctx.stroke()
+        }
+
+        function drawRect(context, s, w, h) {
+            context.beginPath()        
+            context.rect(s.x, s.y, w, h)
+            context.fillStyle="gray"
+            context.fill()
         }
 
         function drawLine(context, f, t, c) {
