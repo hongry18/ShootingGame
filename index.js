@@ -29,7 +29,6 @@ var timer = setInterval(function() {
     //arc(50+frm2, 100)
     //arc(100, 50+frm2)
 
-
     for(var i=0, e=xy.length; i<e; i++) {
         var ar = xy[i]
         if (typeof ar === 'undefined') {
@@ -45,7 +44,7 @@ var timer = setInterval(function() {
     }
 
 
-}, 20)
+}, 10)
 
 elCanvas.onclick = function(e) {
     x = e.layerX
