@@ -7,7 +7,6 @@ var frame = 0
 
 var timer = setInterval(function(f) {
     clearCanvas()
-    // change object
 
     // draw flak
     draw(flak)
@@ -15,10 +14,13 @@ var timer = setInterval(function(f) {
     // draw missiles
     for(var i=0, e=missiles.length; i<e; i++) {
         if (typeof missiles[i] === 'undefined') {
+            // 배열의 길이가 정해져서 삭제된 배열의 객체는 undefined로 반환돼 그대로 다음루프
             continue
         }
 
         if (missiles[i].out) {
+            // 화면밖의 미사일의 배열을 제거
+            // 동영상과 따로 만든 이유는 O(N) 으로 반복문 3번쓰면 O(3N) 이 되기때문
             missiles.splice(i, 1)
             continue
         }
