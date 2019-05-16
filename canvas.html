@@ -3,52 +3,22 @@
     <head>
         <title>shooting game - feat. canvas</title>
         <meta charset="UTF-8"/>
+        <style>
+            td {
+                padding: 5px;
+            }
+
+            input {
+                padding: 5px;
+            }
+        </style>
     </head>
     <body>
         <div id="contents" style="width: 500px; margin: 0 auto;">
-            <canvas id="elCanvas" width="500" height="200"></canvas>
-            <div style="text-align: center;">
-                <span>
-                    <span>trace</span>
-                    <input type="checkbox" id="elTrace" />
-                </span>
-                <!-- -->
-                <span>
-                    <span>v0: </span>
-                    <input type="text" style="width: 40px" id="elV0" value="25"/>
-                </span>
-                <!-- -->
-                <span>
-                    <span>acceleration: </span>
-                    <input type="text" style="width: 40px" id="elAccel" value="1"/>
-                </span>
-                <!-- -->
-                <span>
-                    <span>start </span>
-                    <span>x </span>
-                    <input type="text" style="width: 40px" id="elStartX" value="58"/>
-                    <span>y </span>
-                    <input type="text" style="width: 40px" id="elStartY" value="200"/>
-                </span>
-                <!-- -->
-                <span>
-                    <span>radius: </span>
-                    <input type="text" style="width: 40px" id="elRadius" value="10"/>
-                </span>
-                <!-- -->
-                <span>
-                    <span>frameLimit: </span>
-                    <input type="text" style="width: 40px" id="elFrameLimit" value="60"/>
-                </span>
-                <!-- -->
-                <div>
-                    <button id="elStart">start</button>
-                    <button id="elSave">save</button>
-                </div>
-                <!-- -->
-            </div>
-            <!-- -->
+            <canvas id="elCanvas" width="500" height="250" style="border: 1px solid gray"></canvas>
+            <!-- // canvas#elCanvas -->
         </div>
+        <!-- // #contents -->
     </body>
 
     <script src="./index.js"></script>
