@@ -29,7 +29,21 @@ var ctx = elCanvas.getContext("2d")
 
 elCanvas.style.border = '1px solid gray'
 
-var traceFlag = false
+var client = localStorage.getItem('client');
+if (client !== null) {
+    client = JSON.parse(client)
+
+    elV0.value = client.v0
+    // 초기속도
+    elAccel.value = client.acceleration
+    // 중력가속도 gravitational acceleration
+    elStartX.value = client.startX
+    elStartY.value = client.startY
+    // 시작위치
+    elRadius.value = client.radius
+    // 원의 반지름
+    elFrameLimit.value = client.frameLimit
+}
 
 function canvasClear() {
     ctx.canvas.width = ctx.canvas.width
@@ -54,11 +68,16 @@ elStart.onclick = function() {
     var x, y
 
     var v0 = Number(elV0.value)
+    // 초기속도
     var acceleration = Number(elAccel.value)
+    // 중력가속도 gravitational acceleration
     var startX = Number(elStartX.value)
     var startY = Number(elStartY.value)
+    // 시작위치
     var radius = Number(elRadius.value)
+    // 원의 반지름
     var frameLimit = Number(elFrameLimit.value)
+    // 출력 프레임 수
     
     var timer = setInterval(function() {
         if (frm === frameLimit) {clearInterval(timer)}
@@ -70,5 +89,29 @@ elStart.onclick = function() {
         var frm2 = frm * -v0 + acceleration * Math.pow(frm, 2)
         arc(startX+frm*12, startY+frm2, radius)
     }, 20)
+}
+
+elSave.onclick = function() {
+    var v0 = Number(elV0.value)
+    // 초기속도
+    var acceleration = Number(elAccel.value)
+    // 중력가속도 gravitational acceleration
+    var startX = Number(elStartX.value)
+    var startY = Number(elStartY.value)
+    // 시작위치
+    var radius = Number(elRadius.value)
+    // 원의 반지름
+    var frameLimit = Number(elFrameLimit.value)
+    // 출력 프레임 수
+
+    var obj = {
+        'v0': v0
+        ,'acceleration': acceleration
+        ,'startX': startX
+        ,'startY': startY
+        ,'radius': radius
+        ,'frameLimit': frameLimit
+    }
+    localStorage.setItem('client', JSON.stringify(obj))
 }
 
