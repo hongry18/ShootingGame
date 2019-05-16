@@ -6,7 +6,47 @@
     </head>
     <body>
         <div id="contents" style="width: 500px; margin: 0 auto;">
-            <canvas id="elCanvas" width="500" height="500"></canvas>
+            <canvas id="elCanvas" width="500" height="200"></canvas>
+            <div style="text-align: center;">
+                <span>
+                    <span>trace</span>
+                    <input type="checkbox" id="elTrace" />
+                </span>
+                <!-- -->
+                <span>
+                    <span>v0: </span>
+                    <input type="text" style="width: 40px" id="elV0" value="25"/>
+                </span>
+                <!-- -->
+                <span>
+                    <span>gravitational acceleration: </span>
+                    <input type="text" style="width: 40px" id="elAccel" value="1"/>
+                </span>
+                <!-- -->
+                <span>
+                    <span>start </span>
+                    <span>x </span>
+                    <input type="text" style="width: 40px" id="elStartX" value="58"/>
+                    <span>y </span>
+                    <input type="text" style="width: 40px" id="elStartY" value="200"/>
+                </span>
+                <!-- -->
+                <span>
+                    <span>radius: </span>
+                    <input type="text" style="width: 40px" id="elRadius" value="10"/>
+                </span>
+                <!-- -->
+                <span>
+                    <span>frameLimit: </span>
+                    <input type="text" style="width: 40px" id="elFrameLimit" value="60"/>
+                </span>
+                <!-- -->
+                <div>
+                    <button id="elStart">start</button>
+                </div>
+                <!-- -->
+            </div>
+            <!-- -->
         </div>
     </body>
 
