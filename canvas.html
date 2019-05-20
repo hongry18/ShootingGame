@@ -11,12 +11,37 @@
             input {
                 padding: 5px;
             }
+
+            #contents {
+                width: 500px;
+                margin: 0 auto;
+                position: relative;
+                background-image: url(./background.jpg);
+                background-size: cover;
+            }
+
+            #elDisplay {
+                position: absolute;
+                left: 380px;
+                top: 0;
+                width: 100px;
+                height: 20px;
+                background-color: rgba(0,0,0,0.5);
+                color: white;
+                padding: 10px;
+                font-size: 20px;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
-        <div id="contents" style="width: 500px; margin: 0 auto;">
+        <div id="contents" style="">
             <canvas id="elCanvas" width="500" height="250" style="border: 1px solid gray"></canvas>
             <!-- // canvas#elCanvas -->
+
+            <div id="elDisplay">
+                score: <span id="elScore">0</span>
+            </div>
         </div>
         <!-- // #contents -->
     </body>
